@@ -3,11 +3,12 @@ package model.appsbyvincent.mvp_boilerplate;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.inputmethod.InputMethodManager;
 
 import com.appsbyvincent.mvp_boilerplate.R;
+import com.appsbyvincent.mvp_boilerplate.databinding.ActivityMainBinding;
 
 import model.appsbyvincent.mvp_boilerplate.common.activity.BaseActivity;
 import model.appsbyvincent.mvp_boilerplate.common.fragment.BaseFragment;
@@ -23,7 +24,7 @@ public class MainActivity extends BaseActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         if (getIntent() != null && getIntent().getData() != null) {
-            openInternalUri(getIntent().getData());
+            //openInternalUri(getIntent().getData());
         }
 
         startAuthorization();
@@ -60,7 +61,7 @@ public class MainActivity extends BaseActivity {
         super.onNewIntent(intent);
 
         if (intent.getData() != null) {
-            openInternalUri(intent.getData());
+            //openInternalUri(intent.getData());
         }
     }
 
@@ -93,15 +94,9 @@ public class MainActivity extends BaseActivity {
         getSupportActionBar().setTitle(title);
     }
 
-
-    private boolean navigateTo(int itemId) {
-        switch (itemId) {
-            case R.id.nav_timeline:
-                getRouter().openUri(Uri.parse("://social"));
-                return true;
-
-            default:
-                return false;
-        }
+    public Fragment getCurrentFragment(){
+        Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+        return currentFragment;
     }
+
 }

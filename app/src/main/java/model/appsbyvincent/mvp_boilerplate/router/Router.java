@@ -1,6 +1,5 @@
 package model.appsbyvincent.mvp_boilerplate.router;
 
-import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,14 +10,15 @@ import android.util.Log;
 import java.util.List;
 
 import model.appsbyvincent.mvp_boilerplate.MainActivity;
+import model.appsbyvincent.mvp_boilerplate.common.activity.BaseActivity;
 
 public class Router implements RouterInterface {
 
     private static final String TAG = "Router";
 
-    private final Activity activity;
+    private final BaseActivity activity;
 
-    public Router(@NonNull Activity activity) {
+    public Router(@NonNull BaseActivity activity) {
         this.activity = activity;
     }
 

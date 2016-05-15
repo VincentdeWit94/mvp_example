@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MVP_Boilerplate</string>
+    <string name="internal_url_prefix">mvp_example</string>
+
+    <string name="api_url">https://google.nl</string>
+    <string name="socket_url">https://</string>
+
 </resources>

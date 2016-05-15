@@ -33,7 +33,7 @@ public class Model {
         this.preferencesInterface = new SharedPreferencesWrapper(PreferenceManager.getDefaultSharedPreferences(context));
 
         this.credentialStore = new CredentialStore(this.preferencesInterface);
-        this.networkClient = new NetworkClient(credentialStore);
+        this.networkClient = new NetworkClient(credentialStore, context);
     }
 
     @NonNull

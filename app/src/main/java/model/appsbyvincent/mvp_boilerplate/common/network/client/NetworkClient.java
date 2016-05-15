@@ -1,6 +1,9 @@
 package model.appsbyvincent.mvp_boilerplate.common.network.client;
 
+import android.content.Context;
+
 import com.appsbyvincent.mvp_boilerplate.BuildConfig;
+import com.appsbyvincent.mvp_boilerplate.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.okhttp.OkHttpClient;
@@ -25,7 +28,7 @@ public class NetworkClient implements NetworkClientInterface {
     private final ApiService service;
     private final CredentialStoreInterface credentialStore;
 
-    public NetworkClient(CredentialStoreInterface credentialStore) {
+    public NetworkClient(CredentialStoreInterface credentialStore, Context ctx) {
         this.credentialStore = credentialStore;
 
         OkHttpClient ok = new OkHttpClient();
@@ -36,7 +39,7 @@ public class NetworkClient implements NetworkClientInterface {
                 .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
                 .create();
 
-        String endpoint = "";
+        String endpoint = ctx.getString(R.string.api_url);
 
         RestAdapter.Builder builder = new RestAdapter.Builder()
                 .setEndpoint(endpoint)
